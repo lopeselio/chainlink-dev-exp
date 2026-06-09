@@ -1,0 +1,24 @@
+# Secrets — never commit real values
+.env
+*.env
+!.env.example
+
+# Node
+node_modules/
+dist/
+
+# CRE build artifacts
+*.wasm
+.cre_build_tmp.js
+.cre/
+
+# Foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Local tooling
+.claude/
+
+# OS
+.DS_Store

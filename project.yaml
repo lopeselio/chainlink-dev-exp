@@ -1,0 +1,16 @@
+# ==========================================================================
+# CRE PROJECT SETTINGS
+# ==========================================================================
+# Per-target project settings (RPC endpoints). Selected via --target or the
+# CRE_TARGET env var (see .env / .env.example).
+# ==========================================================================
+
+staging-settings:
+  rpcs:
+    - chain-name: ethereum-testnet-sepolia
+      url: https://ethereum-sepolia-rpc.publicnode.com
+
+production-settings:
+  rpcs:
+    - chain-name: ethereum-testnet-sepolia
+      url: https://ethereum-sepolia-rpc.publicnode.com
