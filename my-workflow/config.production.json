@@ -1,0 +1,11 @@
+{
+  "chainName": "ethereum-testnet-sepolia",
+  "snapshotAddress": "0x0000000000000000000000000000000000000000",
+  "gasLimit": "500000",
+  "answerUpdatedLookbackBlocks": 7200,
+  "feeds": {
+    "ETH": "0x694AA1769357215DE4FAC081bf1f309aDC325306",
+    "BTC": "0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43",
+    "LINK": "0xc59E3633BAAC79493d908e63626716e204A45EdF"
+  }
+}

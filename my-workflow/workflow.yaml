@@ -1,0 +1,21 @@
+# ==========================================================================
+# CRE WORKFLOW SETTINGS
+# ==========================================================================
+# Per-target workflow settings. Selected via --target or the CRE_TARGET env var.
+# ==========================================================================
+
+staging-settings:
+  user-workflow:
+    workflow-name: "token-price-snapshot-staging"
+  workflow-artifacts:
+    workflow-path: "./main.ts"
+    config-path: "./config.staging.json"
+    secrets-path: ""
+
+production-settings:
+  user-workflow:
+    workflow-name: "token-price-snapshot"
+  workflow-artifacts:
+    workflow-path: "./main.ts"
+    config-path: "./config.production.json"
+    secrets-path: ""
