@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  contracts:
+    name: Contracts (Foundry)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Build
+        working-directory: contracts
+        run: forge build
+
+      - name: Test
+        working-directory: contracts
+        run: forge test -vvv
+
+  workflow:
+    name: Workflow (TypeScript)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        working-directory: my-workflow
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        working-directory: my-workflow
+        run: bunx tsc --noEmit
