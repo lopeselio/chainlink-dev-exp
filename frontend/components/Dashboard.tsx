@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { explorer, PRICE_DECIMALS, type SnapshotRecord } from '@/lib/contract'
 import { formatUsd, relativeTime, shortenAddress } from '@/lib/format'
 import { PriceCard } from './PriceCard'
+import { RequestCommand } from './RequestCommand'
 import { Pill, Skeleton } from './ui'
 
 type ApiData = {
@@ -143,6 +144,9 @@ export function Dashboard() {
           )}
         </>
       )}
+
+      {/* Update-a-price command */}
+      {!loading && <RequestCommand />}
 
       {/* Footer */}
       <footer className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
