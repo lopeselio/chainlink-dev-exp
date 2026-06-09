@@ -27,6 +27,7 @@ A working instance is deployed and was exercised end‑to‑end via `cre workflo
 | `Snapshot` contract (verified) | [`0x8ab8054b8b94A8a42719A1D62e08107115660B6A`](https://sepolia.etherscan.io/address/0x8ab8054b8b94A8a42719A1D62e08107115660B6A#code) |
 | Forwarder it trusts (Sepolia Mock) | [`0x15fC6ae953E024d975e77382eEeC56A9101f9F88`](https://sepolia.etherscan.io/address/0x15fC6ae953E024d975e77382eEeC56A9101f9F88) |
 | Example write tx (ETH/USD) | [`0x893ea0…6492`](https://sepolia.etherscan.io/tx/0x893ea0936d1553c177285734745ee081026eba385f509020fb54eb55c6876492) |
+| Live dashboard | https://frontend-lopeselios-projects.vercel.app |
 
 The example transaction's `to` is the **Forwarder**, which then calls `onReport` on the `Snapshot`
 contract — confirming the forwarder check passes only for forwarder‑delivered reports. After the run,
@@ -39,7 +40,9 @@ contract — confirming the forwarder check passes only for forwarder‑delivere
 
 An optional read‑only [Next.js dashboard](frontend/) renders the snapshots written on‑chain — it
 reads `latestSnapshot()` / `snapshotOf()` from the contract via viem (it does not trigger the
-workflow). Run it with `cd frontend && bun install && bun run dev`.
+workflow).
+
+**Live:** https://frontend-lopeselios-projects.vercel.app · run locally with `cd frontend && bun install && bun run dev`.
 
 ![Snapshot dashboard showing the on-chain ETH/USD price, last-updated block, and feed timestamp](docs/dashboard.png)
 
