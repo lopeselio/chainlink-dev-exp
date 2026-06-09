@@ -35,6 +35,16 @@ contract — confirming the forwarder check passes only for forwarder‑delivere
 
 ---
 
+## Bonus: live dashboard
+
+An optional read‑only [Next.js dashboard](frontend/) renders the snapshots written on‑chain — it
+reads `latestSnapshot()` / `snapshotOf()` from the contract via viem (it does not trigger the
+workflow). Run it with `cd frontend && bun install && bun run dev`.
+
+![Snapshot dashboard showing the on-chain ETH/USD price, last-updated block, and feed timestamp](docs/dashboard.png)
+
+---
+
 ## Architecture
 
 ```
