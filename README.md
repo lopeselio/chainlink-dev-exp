@@ -117,9 +117,12 @@ source ../.env
 forge create src/Snapshot.sol:Snapshot \
   --rpc-url "$SEPOLIA_RPC_URL" \
   --private-key "$CRE_ETH_PRIVATE_KEY" \
-  --constructor-args "$FORWARDER_ADDRESS" \
-  --broadcast
+  --broadcast \
+  --constructor-args "$FORWARDER_ADDRESS"
 ```
+
+> Keep `--constructor-args` **last**: it is variadic and will otherwise swallow flags
+> placed after it (e.g. `--broadcast`), silently leaving you in dry-run mode.
 
 (Or use the script: `forge script script/DeploySnapshot.s.sol:DeploySnapshot --rpc-url "$SEPOLIA_RPC_URL" --private-key "$CRE_ETH_PRIVATE_KEY" --broadcast`.)
 
