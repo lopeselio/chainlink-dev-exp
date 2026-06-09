@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #0b0e14;
+  --color-surface: #131722;
+  --color-surface-2: #181d2a;
+  --color-border: #232a3b;
+  --color-foreground: #e6e9f0;
+  --color-muted-foreground: #8b93a7;
+  --color-primary: #4c82fb;
+  --color-primary-strong: #375bd2;
+  --color-positive: #2ebd85;
+  --color-danger: #f6465d;
+  --color-ring: #4c82fb;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle radial glow behind the header */
+.bg-grid-glow {
+  background:
+    radial-gradient(60rem 30rem at 50% -10rem, rgba(76, 130, 251, 0.12), transparent 70%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out both;
+  }
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
