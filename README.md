@@ -1,5 +1,7 @@
 # Token Price Snapshot — Chainlink CRE Workflow
 
+[![CI](https://github.com/lopeselio/chainlink-dev-exp/actions/workflows/ci.yml/badge.svg)](https://github.com/lopeselio/chainlink-dev-exp/actions/workflows/ci.yml)
+
 A [Chainlink Runtime Environment (CRE)](https://docs.chain.link/cre) workflow that, in a **single
 HTTP‑triggered execution**:
 
@@ -13,6 +15,23 @@ The workflow is written in **TypeScript** and is runnable with:
 ```bash
 cre workflow simulate my-workflow --broadcast
 ```
+
+---
+
+## Live deployment (Sepolia)
+
+A working instance is deployed and was exercised end‑to‑end via `cre workflow simulate --broadcast`:
+
+| Item | Value |
+| ---- | ----- |
+| `Snapshot` contract (verified) | [`0x8ab8054b8b94A8a42719A1D62e08107115660B6A`](https://sepolia.etherscan.io/address/0x8ab8054b8b94A8a42719A1D62e08107115660B6A#code) |
+| Forwarder it trusts (Sepolia Mock) | [`0x15fC6ae953E024d975e77382eEeC56A9101f9F88`](https://sepolia.etherscan.io/address/0x15fC6ae953E024d975e77382eEeC56A9101f9F88) |
+| Example write tx (ETH/USD) | [`0x893ea0…6492`](https://sepolia.etherscan.io/tx/0x893ea0936d1553c177285734745ee081026eba385f509020fb54eb55c6876492) |
+
+The example transaction's `to` is the **Forwarder**, which then calls `onReport` on the `Snapshot`
+contract — confirming the forwarder check passes only for forwarder‑delivered reports. After the run,
+`latestSnapshot()` returns `("ETH", 163782021225, 11023067, 1781015412)` (price with 8 decimals =
+\$1637.82, the feed's last‑update block, and its `updatedAt`).
 
 ---
 
